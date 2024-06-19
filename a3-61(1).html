@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6하원칙</title>
+ 
+</head>
+<body>
+    <h1>6하원칙</h1>
+
+    <script>
+        const questions = [
+            "1. 언제 가나요?",
+            "2. 어디로 가나요?", 
+            "3. 누가 가나요?",
+            "4. 어떻게 가나요?",
+            "5. 무엇을 하나요?",
+            "6. 무엇을 기념하여 여행을 가나요?"
+        ];
+
+        const date = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = date.toLocaleDateString('ko-KR', options);
+        document.write(`<p>${formattedDate}</p>`);
+
+        const answers = [];
+
+        for (let i = 0; i < questions.length; i++) {
+            answers[i] = prompt(questions[i]);
+        }
+
+        document.write("<ol>");
+        for (let i = 0; i < answers.length; i++) {
+            document.write(`<li>${questions[i]} ${answers[i]}</li>`);
+        }
+        document.write("</ol>");
+    </script>
+
+    <button id="next">다음 문제</button>
+
+    <script>
+        document.getElementById('next').addEventListener('click', () => {
+            window.open('주소', '_self');
+        });
+    </script>
+</body>
+</html>
